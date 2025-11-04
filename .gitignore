@@ -36,8 +36,8 @@ files/
 # ============================
 # Dependencias
 # ============================
-vendor/
-composer.lock
+#vendor/
+#composer.lock
 
 # ============================
 # Cachés y temporales
