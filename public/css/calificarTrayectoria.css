@@ -1,0 +1,494 @@
+/* ====== Título ====== */
+.tf-title{
+  font-size: 28px;
+  font-weight: 800;
+  color: #012970;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+
+
+/* ====== Tarjeta contenedora ====== */
+#tf-wizard{
+  background: #ffffff;
+  border: 2px solid #c9d4e5;
+  border-radius: 14px;
+  max-width: 950px;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* ====== Secciones ====== */
+#tf-wizard section{ padding: 24px 28px; }
+
+#tf-wizard h3{
+  margin: 6px 0 12px 0;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #012970;
+}
+
+/* ====== Caja de la pregunta ====== */
+#tf-wizard .texto-preg{
+  margin: 0 auto 22px auto;
+  max-width: 820px;
+  height: 100px;
+  padding: 18px 20px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  color: #1f2a44;
+  line-height: 1.45;
+  text-align: center;
+  background: #fff;
+}
+
+/* ====== Contenedor general de opciones (dos filas) ====== */
+#tf-wizard .grid-stars{
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 5px;
+  max-width: 820px;
+  margin: 0 auto;
+  background-color: #f59f0b00;
+  height: auto;
+}
+
+/* ====== Cada fila como “caja” ====== */
+#tf-wizard .stars-row{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 12px 10px;
+  border-radius: 14px;
+  background: #ffffff00;
+}
+
+/* ====== Botón tipo pastilla ====== */
+#tf-wizard .star{
+  width: 100%;
+  height: 6px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 2px solid #c9d4e5;
+  background: #ffffff;
+  color: #f59e0b;              /* color de estrellas */
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(2, 24, 61, 0.03);
+  transition: transform .06s ease, box-shadow .12s ease,
+              background-color .12s ease, border-color .12s ease;
+}
+
+/* 0 estrellas: deja la pastilla vacía pero con altura */
+#tf-wizard .star[value="0"]::after{
+  content: "";
+  height: 1em;
+}
+
+/* Hover/Focus/Active */
+#tf-wizard .star:hover{
+  background: #f6f9ff;
+  border-color: #88a3d7;
+  box-shadow: 0 2px 8px rgba(2, 24, 61, 0.08);
+  transform: translateY(-1px);
+}
+#tf-wizard .star:focus{
+  outline: 3px solid rgba(0, 102, 255, .25);
+  outline-offset: 2px;
+}
+#tf-wizard .star:active{
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(2, 24, 61, 0.08);
+}
+
+/* ====== Final ====== */
+#tf-wizard #final{ text-align:center; }
+#tf-wizard #final p{ color:#1f2a44; }
+#tf-wizard #final .btn, #tf-wizard #final button{ min-width:180px; }
+
+/* ====== Responsive ====== */
+@media (max-width: 900px){
+  #tf-wizard .stars-row{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 540px){
+  #tf-wizard .stars-row{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  #tf-wizard .star{
+    min-height: 50px;
+    font-size: 18px;
+  }
+  .tf-title{ font-size: 24px; }
+}
+
+
+/* Header solo de este wizard */
+#tf-wizard .tf-header{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* izq flexible | título auto | der flexible */
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+#tf-wizard .tf-header__left{ justify-self: start; }
+#tf-wizard .tf-header__title{
+  justify-self: center;     /* centra el bloque del h2 */
+  text-align: center;       /* centra el texto dentro del h2 */
+  margin: 0;
+}
+#tf-wizard .tf-header__right{ justify-self: end; } /* vacío: equilibra para centrar real */
+
+/* opcional: en móviles, deja más aire para que no colisione con el botón */
+@media (max-width: 576px){
+  #tf-wizard .tf-header{ gap: 8px; }
+  #tf-wizard .tf-header__title{ font-size: 24px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Grid 2 filas x 3 columnas ===== */
+.rating-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: auto;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* Botón con 5 estrellas */
+.rating__btn{
+  all: unset;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  width:80%;
+  height: 25px;
+  padding: 10px 12px;
+  border: 2px solid #c9d4e5;
+  border-radius: 14px;
+  background: #fff;
+  cursor: pointer;
+  transition: transform .12s ease, background-color .12s ease, border-color .12s ease, box-shadow .12s ease;
+}
+.rating__btn:hover{
+  background:#f6f9ff;
+  border-color:#88a3d7;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(2,24,61,.08);
+}
+.rating__btn.is-selected{
+  outline: 2px solid #3b82f6;
+}
+
+/* Estrellas */
+.rating__star{
+  font-size: 22px;
+  color: #d1d5db;
+}
+.rating__star.is-filled{
+  color: #f59e0b;
+}
+
+/* Responsive */
+@media (max-width: 560px){
+  .rating-grid{
+    grid-template-columns: repeat(2, 1fr); /* en móviles se reorganizan 2 por fila */
+  }
+  .rating__star{ font-size: 20px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+.options-grid {
+  display: flex;
+  gap: 12px;                  /* un poco menos de separación */
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.options-grid .option-btn {
+  flex: 1;
+  max-width: 140px;
+  min-width: 100px;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 2px solid #c9d4e5;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  color: #012970;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.options-grid .option-btn:hover {
+  background: #f6f9ff;
+  border-color: #88a3d7;
+}
+
+.options-grid .option-btn.selected {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(2,24,61,.2);
+}
+
+
+
+
+
+
+/* contenedor */
+.obs-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+/* textarea */
+.comentario {
+  width: 100%;                 /* ocupa el ancho disponible */
+  max-width: 820px;            /* igual que .texto-preg */
+  height: 70px;            /* 🔹 más bajito */
+  border: 2px solid #c9d4e5;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 15px;
+  background: #ffffff;            /* asegura que el fondo no cambie */
+  resize: vertical;
+  transition: none;            /* evita animaciones raras */
+}
+
+/* Evitar cambio de color al enfocar */
+.comentario:focus {
+  outline: none;               /* quita borde azul */
+  border-color: #c9d4e5;       /* mantiene mismo color */
+  background: #fff;            /* mismo fondo */
+  box-shadow: none;            /* evita brillos */
+}
+
+/* contador */
+.obs-counter {
+  font-size: 13px;
+  color: #666;
+  text-align: right;
+  width: 100%;
+  max-width: 820px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .contenedor-estrella{
+    background-color: #012a70c5;
+    height:200px;
+} */
+
+.star-wrapper {
+  margin-top: 3%;
+  position: relative;        /* referencia para sparks */
+  display: inline-block;     /* se ajusta al tamaño del contenido (estrella) */
+}
+/* === Estrella (la de siempre) === */
+/* Estrella: pulso continuo */
+.final-star-svg {
+  width:55px; height:55px;
+  display:inline-block;
+  transform-origin:center;
+  animation: spin-then-pulse 8s ease-in-out infinite; /* mismo ciclo, pero con pulso */
+}
+
+@keyframes spin-then-pulse {
+  /* Giro + zoom como antes */
+  0%   { transform: scale(1) rotate(0deg);   opacity:0; }
+  12%  { transform: scale(1.05) rotate(360deg); opacity:1; }
+  26%  { transform: scale(1.5)  rotate(360deg); }
+  40%  { transform: scale(1)    rotate(360deg); }
+
+  /* 👇 En vez de quedarse quieta, hace latidos */
+  55%  { transform: scale(1.08) rotate(360deg); }
+  70%  { transform: scale(1.0)  rotate(360deg); }
+  85%  { transform: scale(1.08) rotate(360deg); }
+  100% { transform: scale(1.0)  rotate(360deg); }
+}
+
+
+
+/* === Chispitas sincronizadas con el giro === */
+.sparks {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* centro exacto */
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Cada chispa usa la MISMA duración que la estrella (8.333s) */
+.sparks span {
+  position: absolute;
+  width: var(--s, 8px);
+  height: var(--s, 8px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #FFF9C4 0%, #FFE082 45%, #FFCA28 80%, transparent 100%);
+  filter: drop-shadow(0 0 4px #FFE082);
+  opacity: 0;
+  transform: rotate(var(--a)) translate(0) scale(.3);
+  animation: spark-synced 8s linear infinite;
+  animation-delay: var(--d, 0s);
+}
+
+/* Solo 0–12% del ciclo */
+@keyframes spark-synced {
+  0%   { opacity:0; transform: rotate(var(--a)) translate(0) scale(.3); }
+  2%   { opacity:1; transform: rotate(var(--a)) translate(calc(var(--r)*.4)) scale(1); }
+  8%   { opacity:.95; transform: rotate(var(--a)) translate(var(--r)) scale(.9); }
+  12%  { opacity:0; transform: rotate(var(--a)) translate(calc(var(--r)*1.2)) scale(.6); }
+  100% { opacity:0; transform: rotate(var(--a)) translate(0) scale(.3); }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* El wrapper siempre ocupa el espacio */
+.volver-wrapper {
+  display: inline-block;   /* siempre mantiene hueco */
+  width: 24px;
+  height: 24px;
+}
+
+/* Por defecto, invisible */
+.volver-wrapper.hidden {
+  visibility: hidden;      /* mantiene espacio pero oculta el botón */
+}
+
+/* El wrapper SIEMPRE ocupa espacio, pero por defecto no se ve */
+.volver-wrapper{
+  display:inline-block;
+  width:24px;
+  height:24px;
+  visibility:hidden;            /* mantiene hueco sin verse */
+}
+
+/* ✅ Solo visible cuando #paso1 está visible (no tiene display:none) */
+.container:has(#paso1:not([style*="display: none"])) .volver-wrapper{
+  visibility:visible;
+}
+
+/* Botón icon-only */
+.volver-btn{
+  padding:0 !important;
+  margin:0 !important;
+  border:0 !important;
+  background:transparent !important;
+
+  display:inline-block;
+  line-height:0;
+  vertical-align:middle;
+  width:24px; height:24px;
+  color:#012970;
+  cursor:pointer;
+  text-decoration:none !important;
+}
+.icon-back{ display:block; width:100%; height:100%; }
+
+.volver-btn:hover{ color:#0d3ea9; }
+.volver-btn:focus-visible{
+  outline:2px solid rgba(13,62,169,.35);
+  outline-offset:2px;
+}
+.volver-btn {
+  display: inline-flex;         /* ícono + texto alineados */
+  align-items: center;
+  gap: 6px;                     /* espacio entre ícono y texto */
+  color: #88a3d7;
+  font-size: 15px;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.icon-back {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0; /* evita que se deforme */
+}
+
+.volver-text {
+  line-height: 1; /* que no se despegue verticalmente */
+}

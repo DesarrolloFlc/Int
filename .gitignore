@@ -1,0 +1,52 @@
+# ============================
+# Archivos de configuración
+# ============================
+.env
+.env.*
+!.env.example   # Puedes dejar solo un ejemplo si quieres
+defines.php
+
+# ============================
+# Archivos de aplicación
+# ============================
+*copia*
+*.log
+*.sql
+
+# ============================
+# Archivos de datos y cargas
+# ============================
+*.csv
+*.json
+*.xlsx
+*.xls
+*.pdf
+*.docx
+*.7z
+
+# ============================
+# Directorios locales
+# ============================
+files/
+!files/.gitkeep
+!files/bases_estructuras/.gitkeep
+!files/cargues_ateriores/.gitkeep
+!files/logs/.gitkeep
+
+# ============================
+# Dependencias
+# ============================
+vendor/
+composer.lock
+
+# ============================
+# Cachés y temporales
+# ============================
+.cache/
+.idea/
+.vscode/
+*.bak
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db

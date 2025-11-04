@@ -1,0 +1,68 @@
+/*
+* Zoomy 2.0.0 - jQuery plugin
+* http://zoomy.me
+*
+* Copyright (c) 2010 Jacob Lowe (http://redeyeoperations.com)
+* Dual licensed under the MIT (MIT-LICENSE.txt)
+* and GPL (GPL-LICENSE.txt) licenses.
+*
+* Built for jQuery library
+* http://jquery.com
+*
+* Addition fixes and modifications done by Larry Battle ( blarry@bateru.com )
+* Code has been refactored and the logic has been corrected.
+*
+*Cusor fix from IE by Chris Pearson ( http://www.upland.co.uk )
+*
+*/
+.contenedor-imagenes {
+    display: flex;
+}
+.imagen-con-descripcion {
+    margin-right: 5%;
+}
+.imagen-con-descripcion img {
+    max-width: 70%;
+    max-height: 70%;
+    display: block;
+
+}
+.descripcion-imagen {
+    margin-top: 2%;
+}
+
+.custom-button {
+    background-color: transparent;
+    border: 2px solid #ac7dd8;
+    border-radius: 5px;
+    color: #414040;
+    padding: 10px 5px;
+    margin: 0 1%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+.custom-button:hover {
+    background-color: #a684c5;
+    color: #fff;
+}
+
+
+.custom-button:active {
+    transform: translateY(2px);
+}
+
+.bullet-point {
+    list-style-type: square;
+    margin-left: 5px;
+}
+
+
+.pepito{
+    max-width: 50%;
+    max-height: 50%;
+    display: block;
+
+}
+

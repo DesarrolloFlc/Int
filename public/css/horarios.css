@@ -1,0 +1,476 @@
+.container .head{
+    position: relative;
+    color: #012970;
+}
+
+.container .head::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 3px;
+    width: 340px;
+    border-radius: 8px;
+    background-color: #F37631;
+}
+
+.container .formulario{
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.container form .title{
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #012970;
+}
+
+.container form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .fields .input-field{
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+.input-field label{
+    font-size: 15px;
+    color: #012970;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #012970;
+}
+
+.input-field input, select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #012970;
+    border-radius: 5px;
+    border: 1px solid #012970;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+.input-field textarea{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #012970;
+    border-radius: 5px;
+    border: 1px solid #012970;
+    padding: 0 15px;
+    height: 92px;
+    width: 500px;
+    margin: 8px 0;
+    resize: none;
+}
+
+textarea{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #012970;
+    border-radius: 5px;
+    border: 1px solid #012970;
+    padding: 0 15px;
+    height: 92px;
+    width: 500px;
+    margin: 8px 0;
+    resize: none;
+}
+
+.input-field input :focus,
+.input-field select:focus{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+
+.input-field select,
+.input-field input[type="date"]{
+    color: #012970;
+}
+
+.input-field input[type="date"]:valid{
+    color: #012970;
+}
+
+.container form button, .submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: #F37631;
+}
+
+.container form .btnText{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+form button:hover{
+    background-color: #EA6631;
+}
+
+@media (max-width: 750px) {
+    .container form::-webkit-scrollbar{
+       display: none;
+    }
+
+    form .fields .input-field{
+        width: calc(100% / 2 - 15px);
+    }
+}
+
+@media (max-width: 550px) {
+    form .fields .input-field{
+        width: 100%;
+    }
+
+    .container form::-webkit-scrollbar{
+       display: none;
+    }
+}
+/*--------------------------------------------- select de iconos ------------------------------------------------- */
+.select-sim {
+    width: 200px;
+    height: 42px;
+    line-height: 22px;
+    vertical-align: middle;
+    position: relative;
+    border-radius: 5px;
+    border: 1px solid #012970;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.select-sim::after {
+    content: "▼";
+    color: #012970;
+    font-size: 1em;
+    font-family: arial;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translate(0, -50%);
+}
+
+.select-sim:hover::after {
+    content: "";
+}
+
+.select-sim:hover {
+    overflow: visible;
+}
+
+.select-sim:hover .options .option .label {
+    display: inline-block;
+    margin-left: 5%;
+    font-size: 14px;
+}
+
+.select-sim:hover .options {
+    background: white;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 100%;
+    height: 95px;
+    border-radius: 5px;
+    border: 1px solid #012970;
+    overflow-y: scroll;
+}
+
+.select-sim .options .option {
+    overflow: hidden;
+}
+
+.select-sim:hover .options .option {
+    height: 35px;
+    overflow: hidden;
+}
+
+.select-sim .options .option .img {
+    vertical-align: middle;
+}
+
+.select-sim .options .option .label {
+    display: none;
+    font-size: 14px;
+}
+
+.select-sim .options .option .input {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    float: left;
+    display: inline-block;
+
+    position: absolute;
+    left: -10000px;
+}
+
+.select-sim .options .option .input:checked+.label {
+    display: block;
+    width: 100%;
+}
+
+.select-sim:hover .options .option .input+.label {
+    display: block;
+}
+
+.select-sim:hover .options .option .input:checked+.label {
+    background: #fffff0;
+}
+/* -----------------APROBACION DE PERMMISOS------------------------- */
+
+.panel{
+    background: #ffffff;
+    border-radius: 2.5%;
+}
+
+.panel .panel-heading{
+    padding: 20px 15px;
+    border-radius: 10px 10px 0 0;
+}
+
+.panel .panel-heading .btn{
+    color:  #012970;;
+    font-size: 16px;
+    border: 2px solid #e66700;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+    background-color: #fff;
+}
+
+.panel .panel-heading .btn:hover{
+    color: #0a4579ce;
+}
+
+.panel .panel-heading .form-control{
+    color: #012970;
+    width: 35%;
+    height: 40px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    display: inline-block;
+    background-color: #fff;
+
+}
+
+.panel .panel-heading .form-control:focus{
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: none;
+    outline: none;
+}
+
+.panel .panel-heading .form-control::placeholder{
+    color: #012970;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.panel .panel-body{
+    padding: 0;
+}
+
+.panel .panel-body .table thead tr th{
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px;
+    border: none;
+}
+
+.panel .panel-body .table tbody tr td{
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 12px;
+    vertical-align: middle;
+    border: none;
+}
+
+.panel .panel-body .table tbody tr:nth-child(even){
+    background-color: rgba(255,255,255,0.05);
+}
+
+.panel .panel-body .table tbody .action-list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.panel .panel-body .table tbody .action-list li{
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.panel .panel-body .table tbody .action-list li a{
+    color: #fff;
+    font-size: 15px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+
+.panel .panel-body .table tbody .action-list li a:hover{
+    text-shadow: 3px 3px 0 rgba(255,255,255,0.3);
+}
+
+.panel .panel-body .table tbody .action-list li a:before, .panel .panel-body .table tbody .action-list li a:after{
+    content: attr(data-tip);
+    color: #fff;
+    background-color: #111;
+    font-size: 12px;
+    padding: 5px 7px;
+    border-radius: 4px;
+    text-transform: capitalize;
+    display: none;
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    top: -32px;
+    transition: all 0.3s ease 0s;
+}
+
+.panel .panel-body .table tbody .action-list li a:after{
+    content: '';
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    border-radius: 0;
+    transform: translateX(-50%) rotate(45deg);
+    top: -18px;
+    z-index: -1;
+}
+
+.panel .panel-body .table tbody .action-list li a:hover:before, .panel .panel-body .table tbody .action-list li a:hover:after{
+    display: block;
+}
+
+.panel .panel-footer{
+    color: #fff;
+    background-color: transparent;
+    padding: 15px;
+    border: none;
+}
+
+.panel .panel-footer .col{
+    line-height: 35px;
+}
+
+.pagination{
+    margin: 0;
+}
+.pagination li a{
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid transparent;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 31px;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 0 3px;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+}
+
+.pagination li a:hover{
+    color: #fff;
+    background-color: transparent;
+    border-color: rgba(255,255,255,0.2);
+}
+
+.pagination li a:focus, .pagination li.active a, .pagination li.active a:hover{
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.pagination li:first-child a, .pagination li:last-child a{
+    border-radius: 50%;
+}
+
+@media only screen and (max-width:767px){
+    .panel .panel-heading .title{
+        text-align: center;
+        margin: 0 0 10px;
+    }
+    .panel .panel-heading .btn_group{ text-align: center; }
+}
+/* //HORARIOS */
+                                .horario-row {
+                                    display: grid;
+                                    grid-template-columns: 220px 1fr;
+                                    gap: 12px;
+                                    margin-bottom: 14px
+                                }
+
+                                .horario-tag {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight: 600;
+                                    border: 1px solid #012970
+                                }
+
+                                .horario-table {
+                                    width: 100%;
+                                    border-collapse: collapse
+                                }
+
+                                .horario-table th,
+                                .horario-table td {
+                                    border: 1px solid #012970;
+                                    padding: 6px
+                                }
+
+                                .horario-table th {
+                                    text-align: center
+                                }
+
+                                .horario-table input[type=time] {
+                                    width: 100%;
+                                    border: none;
+                                    outline: none;
+                                    padding: 4px
+                                }
+.sumbit[disabled]{
+  opacity:.55;
+  cursor:not-allowed;
+  filter:saturate(.7);
+}
+

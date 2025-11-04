@@ -1,0 +1,451 @@
+.tf-title {
+  color: #012970;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+/* Filtros */
+.tf-filtros {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* tercera columna más ancha */
+  gap: 16px 24px;
+  align-items: end;
+  margin-bottom: 10px;
+}
+.tf-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.tf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 340px;
+}
+.tf-label {
+  font-size: 0.95rem;
+  color: #212529;
+}
+.tf-input {
+  width: 100%;
+  height: 40px;
+  padding: 8px 10px;
+  border: 1px solid #57a0e6;
+  border-radius: 6px;
+  outline: none;
+  background: #ffffff;
+}
+.tf-input:focus {
+  box-shadow: 0 0 0 2px rgba(1, 41, 112, 0.15);
+}
+/* ===== Botones con estilo idéntico; solo cambia el color ===== */
+.btn-buscar,
+.btn-limpiar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: clamp(0.45rem, 0.35rem + 0.5vw, 0.6rem)
+    clamp(0.8rem, 0.65rem + 0.8vw, 1.1rem);
+  font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
+  font-weight: 700;
+  border-radius: 6px;
+  border: 1px solid transparent; /* se define abajo con el color */
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.04s ease;
+}
+.btn-buscar:hover,
+.btn-limpiar:hover {
+  filter: brightness(0.95);
+}
+.btn-buscar:active,
+.btn-limpiar:active {
+  transform: translateY(1px);
+}
+
+/* Solo color (fondo + borde) */
+.btn-buscar {
+  background: #6fa8dc;
+  border-color: #6fa8dc;
+}
+.btn-limpiar {
+  background: #e79e50;
+  border-color: #e79e50;
+}
+
+/* Ancho fluido dentro de la columna de acciones */
+.tf-actions .btn-buscar,
+.tf-actions .btn-limpiar {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Mantener el texto blanco en TODOS los estados del link */
+.btn-buscar,
+.btn-limpiar,
+.btn-buscar:link,
+.btn-limpiar:link,
+.btn-buscar:visited,
+.btn-limpiar:visited,
+.btn-buscar:hover,
+.btn-limpiar:hover,
+.btn-buscar:active,
+.btn-limpiar:active,
+.btn-buscar:focus,
+.btn-limpiar:focus {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.btn-calificarprueba {
+  color: #0d4e8b !important;
+  text-decoration: none !important;
+}
+/* (por si hay una regla global tipo a:hover en tu layout) */
+.tf-actions a.btn-limpiar:hover,
+.tf-actions a.btn-limpiar:visited {
+  color: #fff !important;
+}
+
+/* ====== Tabla TF - estilo compacto y responsivo ====== */
+
+/* Paleta Finleco (ajusta si quieres) */
+:root {
+  --tf-blue: #012970;
+  --tf-orange: #e26d2d;
+  --tf-stroke: #f3f3f3;
+  --tf-stroke-dark: #b9c3d6;
+  --tf-bg: #f8fafc;
+  --tf-row: #f8fafc;
+  --tf-row-alt: #f2f6fb;
+  --tf-hover: #eef4ff;
+  --tf-shadow: 0 6px 16px rgba(2, 26, 84, 0.08);
+}
+
+/* contenedor con scroll suave y scrollbar fino */
+.panel-body.custom-scroll {
+  border-radius: 16px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--tf-stroke-dark) transparent;
+}
+.panel-body.custom-scroll::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+.panel-body.custom-scroll::-webkit-scrollbar-thumb {
+  background: var(--tf-stroke-dark);
+  border-radius: 999px;
+}
+
+/* Tabla base */
+.tf-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--tf-bg);
+  color: var(--tf-blue);
+  /* borde exterior + radio real */
+  border: 1px solid var(--tf-stroke);
+  border-radius: 16px;
+  overflow: hidden;
+  /* tipografía y densidad */
+  font-size: 0.95rem;
+}
+
+/* Encabezado */
+.tf-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #6fa8dc; /* ← color nuevo */
+  color: #012970; /* texto azul institucional */
+  text-align: left;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--tf-stroke);
+  white-space: nowrap;
+}
+
+/* Celdas */
+.tf-table tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--tf-stroke);
+  vertical-align: top;
+  background: var(--tf-row);
+}
+.tf-table tbody tr:nth-child(even) td {
+  background: var(--tf-row-alt);
+}
+
+/* Hover de fila */
+.tf-table tbody tr:hover td {
+  background: var(--tf-hover);
+}
+
+/* Bordes finales (evita doble borde abajo) */
+.tf-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Columna Descripción: truncado elegante multi-línea */
+/* Solo fija ancho en el td */
+.tf-table td:nth-child(3) {
+  max-width: 520px;
+}
+
+/* El clamp va en el span, no en el td */
+/* EL clamp va en el span, no en el td */
+.td-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+  -webkit-line-clamp: 3; /* Safari/Chrome */
+  line-clamp: 3;         /* Propiedad estándar */
+
+  overflow: hidden;
+  line-height: 1.3;
+  margin: 0;
+}
+
+
+/* Evita márgenes “fantasma” dentro de la celda */
+.tf-table td * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Columna Acciones: centrado y botones */
+.tf-table td:last-child {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Botón “Calificar” coherente con tu sistema */
+.btn-calificarprueba {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  min-height: 36px;
+  padding: 6px 14px;
+  border-radius: 10px;
+  border: 1px solid #6fa8dc;
+  background-color: #6fa7dc46;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 0 rgba(107, 21, 21, 0.04);
+  transition: transform 0.04s ease, filter 0.15s ease;
+}
+.btn-calificarprueba:hover {
+  filter: brightness(0.97);
+}
+.btn-calificarprueba:active {
+  transform: translateY(1px);
+}
+
+/* Densidad “compacta” opcional para pantallas pequeñas */
+@media (max-width: 1200px) {
+  .tf-table {
+    font-size: 0.92rem;
+  }
+  .tf-table thead th,
+  .tf-table tbody td {
+    padding: 10px 12px;
+  }
+}
+
+/* Móvil: tabla a “cards” apiladas para que todo se lea bien */
+@media (max-width: 760px) {
+  .tf-table,
+  .tf-table thead,
+  .tf-table tbody,
+  .tf-table th,
+  .tf-table td,
+  .tf-table tr {
+    display: block;
+  }
+  .tf-table thead {
+    display: none;
+  }
+
+  .tf-table tbody tr {
+    background: var(--tf-bg);
+    margin: 12px 8px;
+    border: 1px solid var(--tf-stroke);
+    border-radius: 14px;
+    box-shadow: var(--tf-shadow);
+    overflow: hidden;
+  }
+  .tf-table tbody td {
+    border: none;
+    border-bottom: 1px solid var(--tf-stroke);
+    padding: 10px 14px 10px 120px; /* deja espacio a la “etiqueta” */
+    position: relative;
+    background: #fff;
+  }
+  .tf-table tbody tr:nth-child(even) td {
+    background: #fff;
+  }
+  .tf-table tbody td:last-child {
+    border-bottom: none;
+  }
+
+  /* Etiquetas con el nombre de la columna */
+  .tf-table tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    width: 96px;
+    font-weight: 700;
+    color: #334155;
+    white-space: normal;
+  }
+
+  /* Descripción: más líneas en móvil */
+  .tf-table td:nth-child(3) {
+    display: -webkit-box; /* Necesario para webkit */
+    -webkit-box-orient: vertical; /* Orientación obligatoria */
+    -webkit-line-clamp: 6; /* Safari/Chrome */
+    line-clamp: 6; /* Propiedad estándar */
+    overflow: hidden; /* Ocultar texto sobrante */
+    max-width: unset;
+  }
+
+  /* Acciones centradas y con espacio */
+  .tf-table td:last-child {
+    text-align: left;
+    padding-left: 120px;
+  }
+}
+
+/* Base */
+.tf-pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Centrado: sobrescribe cualquier space-between previo */
+.tf-pagination.tf-center {
+  justify-content: center; /* << clave */
+  margin: 12px auto 0; /* separa y centra el bloque */
+}
+
+/* Grupos compactos */
+.tf-group-left,
+.tf-group-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Píldoras (si aún no las tienes) */
+.tf-btn {
+  min-width: 40px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.8rem;
+  border: 1px solid #e5e9f2;
+  border-radius: 12px;
+  background: #fff;
+  color: #111827;
+  text-decoration: none;
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.04);
+}
+.tf-btn.is-active {
+  background: #e9edf3;
+  border-color: #d7dee9;
+  font-weight: 600;
+}
+.tf-btn.is-disabled {
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.star-anim {
+  font-size: 72px;
+  line-height: 1;
+  display: inline-block;
+  transform-origin: center;
+  animation: star-pop 0.55s ease-out both,
+    star-glow 1.5s ease-in-out 0.55s infinite,
+    star-float 3s ease-in-out 0.55s infinite;
+  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.05));
+}
+/* opcional: misma animación bajo una clase “replay” para forzar re-evaluación */
+.star-anim.replay {
+  animation: star-pop 0.55s ease-out both,
+    star-glow 1.5s ease-in-out 0.55s infinite,
+    star-float 3s ease-in-out 0.55s infinite;
+}
+
+@keyframes star-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes star-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(255, 170, 0, 0);
+  }
+  50% {
+    text-shadow: 0 0 14px rgba(255, 170, 0, 0.75),
+      0 0 28px rgba(255, 170, 0, 0.45);
+  }
+}
+@keyframes star-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.03);
+  }
+}
+
+/* Centrado y backdrop del dialog (opcional si ya tienes estilos de <dialog>) */
+.tf-congrats::backdrop {
+  background: rgba(0, 0, 0, 0.35);
+}
+/* Fade-out suave del contenido al autocerrar */
+.tf-congrats .tf-card {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.tf-congrats.will-close .tf-card {
+  transform: scale(0.98);
+  opacity: 0;
+}
+.pagetitle .container {
+  --tf-block-max: auto; /* ajusta aquí el ancho objetivo */
+}
+
+/* 2) Haz que filtros y la caja de la tabla usen ese mismo ancho */
+.tf-filtros,
+.panel-body.custom-scroll {
+  max-width: var(--tf-block-max);
+  margin-inline: auto; /* centra ambos bloques */
+}
+
+/* Opcional: iguala un poquito los bordes visuales */
+.tf-filtros {
+  padding-inline: 14px; /* coincide con padding de celdas */
+}
