@@ -288,16 +288,7 @@ Mail::raw(
                 }
             });
         }
-        // Orden por estado holi
-$query->where('estado', '!=', 4)
-      ->orderByRaw("
-        CASE estado
-            WHEN 1 THEN 0
-            WHEN 0 THEN 1
-            WHEN 2 THEN 2
-            WHEN 3 THEN 3
-        END
-    ");
+$query->orderBy('id_permisos', 'DESC');
 
         $datos = $query->paginate(25)->appends($request->all());
         return view('intranet.listados', ['datos' => $datos]);
@@ -361,16 +352,7 @@ $query->where('estado', '!=', 4)
             });
         }
 
-        // Ordenar por estado personalizado
-        $query->orderByRaw("
-        CASE estado
-            WHEN 1 THEN 1
-            WHEN 0 THEN 0
-            WHEN 2 THEN 4
-            WHEN 6 THEN 2
-            WHEN 3 THEN 3
-        END
-    ");
+    $query->orderBy('id_permisos', 'DESC');
 
         // Paginar y pasar a la vista
         $datos = $query->paginate(10)->appends($request->all());

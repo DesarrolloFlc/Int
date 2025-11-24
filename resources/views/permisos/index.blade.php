@@ -34,7 +34,7 @@
                 <form class="formulario" action="{{ route('solicitud') }}" method="post">
                     @csrf
                     <div class="details personal m-4">
-                        <span class="title fw-bold">Imformación sobre el permiso</span>
+                        <span class="title fw-bold">Información sobre el permiso</span>
                         <div class="fields">
                             <div class="input-field">
                                 <label>Fecha de diligenciamiento</label>
