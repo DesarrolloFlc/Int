@@ -104,8 +104,8 @@ public function exportarExcel()
         // Seguimiento
         $seguimientoTexto = match($permiso->seguimiento) {
             0 => 'Por revisar',
-            1 => 'Completado',
-            2 => 'No completado',
+            1 => 'No Completado',
+            2 => 'completado',
             default => 'Por revisar',
         };
         $sheet->setCellValue("K{$fila}", $seguimientoTexto);
