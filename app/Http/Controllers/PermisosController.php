@@ -105,8 +105,8 @@ public function exportarExcel()
         $seguimientoTexto = match($permiso->seguimiento) {
             0 => 'Por revisar',
             1 => 'Completado',
-            2 => 'Sin informaciÃ³n',
-            default => 'Desconocido',
+            2 => 'No completado',
+            default => 'Por revisar',
         };
         $sheet->setCellValue("K{$fila}", $seguimientoTexto);
 
@@ -352,7 +352,7 @@ $query->orderBy('id_permisos', 'DESC');
             });
         }
 
-    $query->orderBy('id_permisos', 'DESC');
+    $query->orderBy('fecha_permiso', 'DESC');
 
         // Paginar y pasar a la vista
         $datos = $query->paginate(10)->appends($request->all());
@@ -768,8 +768,7 @@ if ($request->filled('busqueda_generall')) {
     $seguimientoMap = [
         'por revisar'      => 0,
         'finalizado'       => 2,
-        'sin informacion'  => 1,
-        'sin informaciÃ³n'  => 1, // con tilde tambiÃ©n
+        'completado'  => 1,
     ];
 
     $estado = array_key_exists($busqueda, $estadoMap) ? $estadoMap[$busqueda] : null;
@@ -799,14 +798,7 @@ if ($request->filled('busqueda_generall')) {
         }
     });
 }
-        $query->orderByRaw("
-        CASE seguimiento
-            WHEN 1 THEN 1
-            WHEN 0 THEN 0
-            WHEN 2 THEN 2
-            WHEN 3 THEN 3
-        END
-    ");
+    $query->orderBy('fecha_permiso', 'DESC');
 
         $datos = $query->paginate(10)->appends($request->all());
         return view('calendario.seguimientoPermisos', ['datos' => $datos]);
