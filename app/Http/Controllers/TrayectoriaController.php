@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-
+use Spatie\FlareClient\View;
 
 class TrayectoriaController extends Controller
 {
@@ -32,7 +32,7 @@ public function index(Request $request)
 
     try {
         $pdo = new \PDO(
-            "mysql:host=192.168.6.118;dbname=administrativa;charset=utf8mb4",
+            "mysql:host=192.168.6.72;dbname=administrativa;charset=utf8mb4",
             "intranet2","Finleco2025*-+",
             [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION, \PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_ASSOC,
              \PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8mb4"]
@@ -229,7 +229,7 @@ private function pdoAdmin(): \PDO
 {
     Log::info('🔧 [pdoAdmin] Creando conexión PDO administrativa');
 
-    $host = env('EXT_ADMIN_HOST', '192.168.6.118');
+    $host = env('EXT_ADMIN_HOST', '192.168.6.72');
     $db   = env('EXT_ADMIN_DB', 'administrativa');
     $user = env('EXT_ADMIN_USER', 'intranet2');
     $pass = env('EXT_ADMIN_PASS', 'Finleco2025*-+');
@@ -283,6 +283,17 @@ public function calificar(Request $req)
         'texto'          => $config[$paso]['texto'],
         'numero'         => $config[$paso]['numero'],
         'tieneSiguiente' => $config[$paso]['tieneSiguiente'],
+    ]);
+}
+
+
+public function evaluar(Request $request)
+{
+    // Si quieres recibir el ID por query (?id=123)
+    $id = (int) $request->query('id', 0);
+
+    return view('trayectoria_formativa.evaluacionTrayectoria', [
+        'id' => $id
     ]);
 }
 

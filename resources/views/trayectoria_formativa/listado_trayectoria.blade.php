@@ -100,6 +100,15 @@
                                             class="btn-calificarprueba">
                                             Calificar
                                         </a>
+    <a href="{{ route('trayectoria.evaluacion.vista', [
+            'id'   => (int) $id,
+            'paso' => 1,
+            'tema' => $tema,
+        ]) }}"
+       class="btn-calificarprueba btn-presentar-evaluacion js-presentar-evaluacion">
+        Presentar evaluación
+    </a>
+
                                     </td>
                                 </tr>
                             @empty
@@ -372,4 +381,33 @@
             }
         }
     </script>
+<link rel="stylesheet" href="/intranet/css/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // Advertencia con SweetAlert antes de presentar evaluación
+    document.addEventListener('click', async function (e) {
+        const link = e.target.closest('.js-presentar-evaluacion');
+        if (!link) return;
+
+        e.preventDefault();
+
+        const result = await Swal.fire({
+            title: '¿Presentar evaluación?',
+            text: 'Una vez ingreses, se tomará como intento de presentación.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, presentar ahora',
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '  #115596',
+            cancelButtonColor: '#6c757d'
+        });
+
+        if (result.isConfirmed) {
+            window.location.href = link.href;
+        }
+    });
+</script>
+
+
 @endsection

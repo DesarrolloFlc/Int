@@ -199,3 +199,6 @@ Route::post('/trayectoria/calificar/guardar', [TrayectoriaController::class, 'gu
 
 Route::get('/trayectoria/calificar', [TrayectoriaController::class, 'calificar'])
     ->name('trayectoria.calificar.vista');
+
+Route::get('/trayectoria/evaluacion', [TrayectoriaController::class, 'evaluar'])
+    ->name('trayectoria.evaluacion.vista');

@@ -449,3 +449,18 @@
 .tf-filtros {
   padding-inline: 14px; /* coincide con padding de celdas */
 }
+/* Botón especial – Púrpura nube */
+/* Botón especial – Lila crema */
+.btn-presentar-evaluacion {
+  background-color: #f0e6ff;       /* lila crema */
+  border-color: #d1baff;
+  color: #553d85 !important;       /* morado oscuro coherente */
+  margin-left: 6px;
+}
+
+.btn-presentar-evaluacion:hover {
+  background-color: #e4d4ff;       /* ligeramente más oscuro */
+  border-color: #c2a1ff;
+  color: #442c75 !important;
+}
+
